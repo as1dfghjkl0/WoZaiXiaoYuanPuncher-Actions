@@ -147,9 +147,9 @@ class WoZaiXiaoYuanPuncher:
             "province": os.environ['WZXY_PROVINCE'],
             "township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
-            "myArea": "",
-            "areacode": "",
-            "userId": ""，
+#             "myArea": "",
+#             "areacode": "",
+#             "userId": ""，
             "citycode": os.environ['WZXY_CITYCODE'],
             "timestampHeader": sign_time,
             "signatureHeader": signature,
