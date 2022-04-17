@@ -9,10 +9,8 @@ import base64
 import utils
 import urllib
 import urllib.parse
-import time
-import hashlib
 from urllib.parse import urlencode
-from urllib3.util import Retry
+# from urllib3.util import Retry
 
 
 class WoZaiXiaoYuanPuncher:
@@ -132,9 +130,9 @@ class WoZaiXiaoYuanPuncher:
         self.header['Host'] = "student.wozaixiaoyuan.com"
         self.header['Content-Type'] = "application/x-www-form-urlencoded"
         self.header['JWSESSION'] = self.getJwsession()
-        sign_time = int(round(time.time() * 1000)) #13位
-        content = f"广东省_{t}_佛山市"
-        signature = hashlib.sha256(content.encode('utf-8')).hexdigest()
+        cur_time = int(round(time.time() * 1000)) #13位
+#         content = f"广东省_{t}_佛山市"
+        
         sign_data = {
             "answers": '["0"]',
             "seq": str(seq),
@@ -147,12 +145,16 @@ class WoZaiXiaoYuanPuncher:
             "province": os.environ['WZXY_PROVINCE'],
             "township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
-#             "myArea": "",
-#             "areacode": "",
-#             "userId": ""，
+            "myArea": "",
+            "areacode": "",
+            "userId": "",
             "citycode": os.environ['WZXY_CITYCODE'],
-            "timestampHeader": sign_time,
-            "signatureHeader": signature,
+            "timestampHeader": cur_time,
+            "signatureHeader": "signature": hashlib.sha256(
+                f"{os.environ['WZXY_PROVINCE']}_{cur_time}_{os.environ['WZXY_CITY']}".encode(
+                    "utf-8"
+                )
+            ).hexdigest(),
         }
         data = urlencode(sign_data)
         self.session = requests.session()    
