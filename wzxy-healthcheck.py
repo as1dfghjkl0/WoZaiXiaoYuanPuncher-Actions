@@ -99,7 +99,7 @@ class WoZaiXiaoYuanPuncher:
             "street": os.environ['WZXY_STREET'],
             "citycode": os.environ['WZXY_CITYCODE'],
             "timestampHeader": cur_time,
-            "signatureHeader": "signature": hashlib.sha256(
+            "signature": hashlib.sha256(
                 f"{os.environ['WZXY_PROVINCE']}_{cur_time}_{os.environ['WZXY_CITY']}".encode(
                     "utf-8"
                 )
