@@ -165,7 +165,7 @@ jobs:
         WZXY_CITY: ${{secrets.CITY}}
         WZXY_DISTRICT: ${{secrets.DISTRICT}}
         WZXY_PROVINCE: ${{secrets.PROVINCE}}
-        WZXY_TOWNSHIP: ${{secrets.TOWNSHIP}}
+        #WZXY_TOWNSHIP: ${{secrets.TOWNSHIP}}
         WZXY_STREET: ${{secrets.STREET}}
         WZXY_CITYCODE: ${{secrets.CITYCODE}}
       run: python wzxy-healthcheck.py       
