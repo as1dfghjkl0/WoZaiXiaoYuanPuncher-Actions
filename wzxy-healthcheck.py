@@ -95,7 +95,7 @@ class WoZaiXiaoYuanPuncher:
             "city": os.environ['WZXY_CITY'],
             "district": os.environ['WZXY_DISTRICT'],
             "province": os.environ['WZXY_PROVINCE'],
-            "township": os.environ['WZXY_TOWNSHIP'],
+            #"township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
             "citycode": os.environ['WZXY_CITYCODE'],
             "timestampHeader": cur_time,
