@@ -88,17 +88,16 @@ class WoZaiXiaoYuanPuncher:
         self.header['JWSESSION'] = self.getJwsession()
         cur_time = int(round(time.time() * 1000))
         sign_data = {
-#             "answers": '["0","3","1","无","无","0"]',
+            "answers": '["0","3","1","无","无","0"]',
             "latitude": os.environ['WZXY_LATITUDE'],
             "longitude": os.environ['WZXY_LONGITUDE'],
             "country": os.environ['WZXY_COUNTRY'],
             "city": os.environ['WZXY_CITY'],
             "district": os.environ['WZXY_DISTRICT'],
             "province": os.environ['WZXY_PROVINCE'],
-            #"township": os.environ['WZXY_TOWNSHIP'],
+            "township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
             "citycode": os.environ['WZXY_CITYCODE'],
-            "answers": '["0","3","1","无","无","0"]',
             "timestampHeader": cur_time,
             "signature": hashlib.sha256(
                 f"{os.environ['WZXY_PROVINCE']}_{cur_time}_{os.environ['WZXY_CITY']}".encode(
